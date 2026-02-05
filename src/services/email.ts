@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://aurys-roses-production.up.railway.app/api'; // Update with your actual backend URL
+const API_BASE_URL = 'https://aurys-roses-staging.up.railway.app/api'; // Update with your actual backend URL
 export const emailApi = axios.create({
   baseURL: API_BASE_URL,
   headers: {
