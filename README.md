@@ -8,4 +8,9 @@
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
-  
+
+  Contact form server
+- Copy `.env.example` to `.env` and fill Mailjet credentials and the target email.
+- Install server deps: `npm i express cors node-mailjet dotenv`
+- Start the server: `npm run start:server`
+- The contact form POSTs to `http://localhost:4000/api/contact` by default.

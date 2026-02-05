@@ -41,11 +41,12 @@ export function AddToCartPage({ product, isOpen, onClose, onAddToCart }: AddToCa
   const totalPrice = (priceNumber * quantity).toFixed(2);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ pointerEvents: isOpen ? 'auto' : 'none' }}>
       {/* Backdrop */}
       <div
         className="absolute inset-0 backdrop-blur-md bg-black/30 transition-opacity"
         onClick={onClose}
+        style={{ pointerEvents: 'auto' }}
       />
 
       {/* Modal Content */}
