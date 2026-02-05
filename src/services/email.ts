@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:4001/api';
-
+const API_BASE_URL = 'aurys-roses-production.up.railway.app/api'; // Update with your actual backend URL
 export const emailApi = axios.create({
   baseURL: API_BASE_URL,
   headers: {
