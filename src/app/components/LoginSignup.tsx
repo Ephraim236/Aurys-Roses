@@ -41,7 +41,7 @@ export function LoginSignup({ isOpen, onClose, onLoginSuccess }: LoginSignupProp
 
     try {
       const endpoint = isSignup ? '/api/auth/signup' : '/api/auth/login';
-      const res = await fetch(`https://aurys-roses-staging.up.railway.app${endpoint}`, {
+      const res = await fetch(`https://aurys-roses-production.up.railway.app${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

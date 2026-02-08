@@ -133,7 +133,7 @@ export default function App() {
     setContactLoading(true);
 
     try {
-      const res = await fetch('https://aurys-roses-staging.up.railway.app/api/contact',  {
+      const res = await fetch('https://aurys-roses-production.up.railway.app/api/contact',  {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
