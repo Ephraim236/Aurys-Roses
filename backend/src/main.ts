@@ -4,20 +4,25 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // 1. Enable CORS FIRST with a dynamic origin reflector
+  // 1. Enable CORS for BOTH production and staging origins
   app.enableCors({
-    origin: true, // This automatically allows whichever origin is calling it (safest for debugging)
+    origin: [
+      'https://aurys-roses-production.up.railway.app',
+      'https://aurys-roses-staging.up.railway.app',
+      'http://localhost:3000'
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type, Accept, Authorization, X-Requested-With',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
   });
 
-  // 2. Set the API prefix
-  app.setGlobalPrefix('api');
+  // 2. DO NOT use setGlobalPrefix('api') here anymore. 
+  // We will put '/api' directly in the Controller to avoid confusion.
 
   const port = process.env.PORT || 4001;
-  await app.listen(port, '0.0.0.0'); // 0.0.0.0 is better for Railway deployments
-  console.log(`🚀 API active at: http://0.0.0.0:${port}/api`);
+  
+  // 3. Bind to 0.0.0.0 for Railway
+  await app.listen(port, '0.0.0.0');
+  console.log(`✅ Backend is active on port ${port}`);
 }
-
 bootstrap();
