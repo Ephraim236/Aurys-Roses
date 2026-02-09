@@ -47,6 +47,12 @@ export function LoginSignup({ isOpen, onClose, onLoginSuccess }: LoginSignupProp
         body: JSON.stringify({ email, password }),
       });
 
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error('Server error:', errorText);
+        throw new Error(`Server returned ${res.status}`);
+      }
+
       const data = await res.json();
 
       if (data.success) {
